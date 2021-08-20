@@ -1,0 +1,19 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import PhotosService from "../../api/photos";
+
+export const fetchListPhotos = createAsyncThunk(
+  "photos/fetchPhotos",
+  async ({ page, per_page, order_by }) => {
+    const response = await PhotosService.listPhotos({
+      page,
+      per_page,
+      order_by,
+    });
+    return response.data;
+  }
+);
+
+export const getPhoto = createAsyncThunk("photos/getPhoto", async (id) => {
+  const response = await PhotosService.getPhoto(id);
+  return response.data;
+});
