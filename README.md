@@ -14,7 +14,7 @@ A Unsplash app build with React JS and Redux
 
 ## Source URL
 
-- GitHub: https://github.com/jbagaresgaray/Ionic-React-Unsplash-App
+- GitHub: https://github.com/jbagaresgaray/React-Unsplash-App-Clone
 
 ## Environment Variables
 
@@ -36,7 +36,8 @@ Wanne see the React Native version of this app? See the link below:
 
 - GitHub: https://github.com/jbagaresgaray/React-Native-Unsplash-App
 
-You can find me on:
+
+## You can find me on:
 
 - Github: http://github.com/jbagaresgaray
 - Twitter: http://twitter.com/Janphil17
