@@ -1,4 +1,7 @@
 import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
+ 
+
 import { topicsReducer } from "./slices/topicsSlice";
 import { photosReducer } from "./slices/photosSlice";
 import { collectionsReducer } from "./slices/collectionsSlice";
@@ -11,6 +14,8 @@ const rootReducer = combineReducers({
   collections: collectionsReducer,
   users: usersReducer,
   search: searchReducer,
+  routing: routerReducer,
 });
+
 
 export default rootReducer;
