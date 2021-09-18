@@ -1,9 +1,7 @@
 import React from "react";
 import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { topicsSelectors } from "../../stores/slices/topicsSlice";
 
 import "./AppHeader.scss";
 import AppSearchBar from "../AppSearchBar";

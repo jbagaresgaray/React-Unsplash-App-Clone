@@ -9,7 +9,6 @@ import HomeJumbotron from "./components/HomeJumbotron/HomeJumbotron";
 
 import { topicsSelectors } from "../../stores/slices/topicsSlice";
 
-
 import "./Home.scss";
 
 const HomeScreen = () => {
@@ -23,7 +22,7 @@ const HomeScreen = () => {
       <AppHeader />
       <main>
         <div className="mx-3">
-        <HomeCategories
+          <HomeCategories
             showLoading={isLoadingTopics}
             topics={TopicsArr}
             onClick={onTopicPress}
