@@ -1,7 +1,7 @@
 import axios from "axios";
 import { REACT_API_URL, REACT_UNSPLASH_ACCESS_KEY } from "../constants";
 
-const baseURL = REACT_API_URL;
+const baseURL = REACT_API_URL || "https://api.unsplash.com/";
 const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
