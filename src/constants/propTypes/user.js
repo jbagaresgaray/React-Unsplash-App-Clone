@@ -1,13 +1,9 @@
 import PropTypes from "prop-types";
-import {
-  IBadge,
-  ILinks,
-  IMeta,
-  IPreviewPhotos,
-  IProfileImage,
-  ISocialLinks,
-  ITags,
-} from "./generic";
+import { lazyFunction } from "../../utils";
+import { IBadge, IMeta, ISocialLinks } from "./generic";
+import { ILinks } from "./links";
+import { IPreviewPhotos, IProfileImage } from "./photo";
+import { ITags } from "./tags";
 
 export const IUser = {
   id: PropTypes.string,
@@ -21,7 +17,11 @@ export const IUser = {
   bio: PropTypes.string,
   location: PropTypes.string,
   links: PropTypes.shape(ILinks),
-  profile_image: PropTypes.shape(IProfileImage),
+  profile_image: PropTypes.shape(
+    lazyFunction(function () {
+      return IProfileImage;
+    })
+  ),
   instagram_username: PropTypes.string,
   total_collections: PropTypes.number,
   total_likes: PropTypes.number,
@@ -34,7 +34,13 @@ export const IUser = {
 export const IUserProfile = {
   ...IUser,
   followed_by_user: PropTypes.bool,
-  photos: PropTypes.arrayOf(PropTypes.shape(IPreviewPhotos)),
+  photos: PropTypes.arrayOf(
+    PropTypes.shape(
+      lazyFunction(function () {
+        return IPreviewPhotos;
+      })
+    )
+  ),
   badge: PropTypes.shape(IBadge),
   tags: PropTypes.shape(ITags),
   followers_count: PropTypes.number,
@@ -48,5 +54,11 @@ export const IUserProfile = {
 export const ISearchUser = {
   ...IUser,
   followed_by_user: PropTypes.bool,
-  photos: PropTypes.arrayOf(PropTypes.shape(IPreviewPhotos)),
+  photos: PropTypes.arrayOf(
+    PropTypes.shape(
+      lazyFunction(function () {
+        return IPreviewPhotos;
+      })
+    )
+  ),
 };

@@ -22,4 +22,4 @@ export const SCREEN_WIDTH = Math.round(window.innerWidth);
 
 // export type ORDER_BY_TYPES = "featured" | "latest" | "oldest" | "position";
 
-export const MAX_PER_PAGE = 21;
+export const MAX_PER_PAGE = 24;

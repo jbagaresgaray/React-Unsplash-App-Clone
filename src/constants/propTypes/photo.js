@@ -1,10 +1,29 @@
 import PropTypes from "prop-types";
 import { IRelatedCollections } from "./collection";
-import { IExif, ILinks, ILocation, IMeta, ITag, IUrls } from "./generic";
+import { ILinks } from "./links";
 import { ITopic } from "./topic";
 import { IUser } from "./user";
+import { IUrls } from "./urls";
+import { IExif, IMeta } from "./generic";
+import { ITag } from "./tags";
+import { ILocation } from "./location";
+import { lazyFunction } from "../../utils";
 
-export const IPhoto = {
+const IProfileImage = {
+  small: PropTypes.string,
+  medium: PropTypes.string,
+  large: PropTypes.string,
+};
+
+const IPreviewPhotos = {
+  id: PropTypes.string,
+  created_at: PropTypes.string,
+  updated_at: PropTypes.string,
+  blur_hash: PropTypes.string,
+  urls: PropTypes.shape(IUrls),
+};
+
+const IPhoto = {
   id: PropTypes.string,
   created_at: PropTypes.string,
   updated_at: PropTypes.string,
@@ -21,11 +40,15 @@ export const IPhoto = {
   likes: PropTypes.number,
   liked_by_user: PropTypes.bool,
   current_user_collections: PropTypes.oneOf(PropTypes.object, PropTypes.array),
-  sponsorship: PropTypes.oneOf(PropTypes.object, PropTypes.array),
-  user: PropTypes.shape(IUser),
+  sponsorship: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  user: PropTypes.shape(
+    lazyFunction(function () {
+      return IUser;
+    })
+  ),
 };
 
-export const IPhotoExtended = {
+const IPhotoExtended = {
   ...IPhoto,
   exif: PropTypes.shape(IExif),
   location: PropTypes.shape(ILocation),
@@ -37,3 +60,5 @@ export const IPhotoExtended = {
   related_collections: PropTypes.shape(IRelatedCollections),
   meta: PropTypes.shape(IMeta),
 };
+
+export { IProfileImage, IPreviewPhotos, IPhoto, IPhotoExtended };

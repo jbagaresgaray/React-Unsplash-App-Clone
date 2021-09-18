@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { lazyFunction } from "../../utils";
 
-import { ILinks, IMeta, IPreviewPhotos, ITag } from "./generic";
-import { IPhoto } from "./photo";
+import { IMeta } from "./generic";
+import { ILinks } from "./links";
+import { IPhoto, IPreviewPhotos } from "./photo";
+import { ITag } from "./tags";
 import { IUser } from "./user";
 
 export const ICollection = {
@@ -18,9 +21,23 @@ export const ICollection = {
   share_key: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.shape(ITag)),
   links: PropTypes.shape(ILinks),
-  user: PropTypes.shape(IUser),
-  cover_photo: PropTypes.shape(IPhoto),
-  preview_photos: PropTypes.arrayOf(PropTypes.shape(IPreviewPhotos)),
+  user: PropTypes.shape(
+    lazyFunction(function () {
+      return IUser;
+    })
+  ),
+  cover_photo: PropTypes.shape(
+    lazyFunction(function () {
+      return IPhoto;
+    })
+  ),
+  preview_photos: PropTypes.arrayOf(
+    PropTypes.shape(
+      lazyFunction(function () {
+        return IPreviewPhotos;
+      })
+    )
+  ),
 };
 
 export const ICollectionExtended = {

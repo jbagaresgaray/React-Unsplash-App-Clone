@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { MAX_PER_PAGE } from "../constants";
 import HomeScreen from "../pages/Home/Home";
 import { fetchCollections } from "../stores/middleware/collection";
-import { fetchListPhotos } from "../stores/middleware/photos";
+import { fetchListPhotos, getRandomPhoto } from "../stores/middleware/photos";
 import { fetchListTopics } from "../stores/middleware/topic";
 import { ROUTES } from "./routes";
 
@@ -33,6 +33,7 @@ function AppRoutes() {
         per_page: MAX_PER_PAGE,
       })
     );
+    dispatch(getRandomPhoto());
   }, []);
 
   return (

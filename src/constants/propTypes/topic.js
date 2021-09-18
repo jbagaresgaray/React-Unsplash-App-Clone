@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
-import { ILinks, IPreviewPhotos } from "./generic";
-import { IPhoto } from "./photo";
+import { lazyFunction } from "../../utils";
+import { ILinks } from "./links";
+import { IPhoto, IPreviewPhotos } from "./photo";
 import { IUser } from "./user";
 
 export const ITopic = {
@@ -21,6 +22,16 @@ export const ITopic = {
   status: PropTypes.string,
   owners: PropTypes.arrayOf(PropTypes.shape(IUser)),
   top_contributors: PropTypes.arrayOf(PropTypes.shape(IUser)),
-  cover_photo: PropTypes.shape(IPhoto),
-  preview_photos: PropTypes.arrayOf(PropTypes.shape(IPreviewPhotos)),
+  cover_photo: PropTypes.shape(
+    lazyFunction(function () {
+      return IPhoto;
+    })
+  ),
+  preview_photos: PropTypes.arrayOf(
+    PropTypes.shape(
+      lazyFunction(function () {
+        return IPreviewPhotos;
+      })
+    )
+  ),
 };

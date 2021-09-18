@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./HomeCategories.scss";
 
 import HomeCategoryCard from "../HomeCategoryCard/HomeCategoryCard";
+import { ITopic } from "../../../../constants/propTypes/topic";
 
 function HomeCategories(props) {
   const { topics, showLoading, onClick } = props;
@@ -22,7 +23,7 @@ function HomeCategories(props) {
 }
 
 HomeCategories.propTypes = {
-  topics: PropTypes.array,
+  topics: PropTypes.arrayOf(PropTypes.shape(ITopic)),
   showLoading: PropTypes.bool,
   onClick: PropTypes.func,
 };

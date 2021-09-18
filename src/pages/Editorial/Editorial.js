@@ -1,43 +1,42 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Masonry from "react-masonry-css";
+import { Container } from "react-bootstrap";
+
 import AppCardItem from "../../components/AppCardItem";
 import { photosSelectors } from "../../stores/slices/photosSlice";
 
+import "./Editorial.scss";
+
 function Editorial() {
   const PhotosArr = useSelector(photosSelectors.photos);
+  const isLoadingPhotos = useSelector(photosSelectors.isLoadingPhotos);
+
+  const onUserPress = (username) => {};
+
+  const onImagePress = (id) => {};
 
   return (
     <div className="Editorial">
-      <section class="py-5 text-center">
-        <div class="row py-lg-5">
-          <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Album example</h1>
-            <p class="lead text-muted">
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don’t simply skip over it entirely.
-            </p>
-            <p>
-              <a href="#" class="btn btn-primary my-2">
-                Main call to action
-              </a>
-              <a href="#" class="btn btn-secondary my-2">
-                Secondary action
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div className="album py-5 bg-light">
+        <Container>
+          <Masonry
+            breakpointCols={3}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
             {PhotosArr.map((item, index) => (
-              <div class="col">
-                <AppCardItem />
+              <div key={index}>
+                <AppCardItem
+                  item={item}
+                  showLoading={isLoadingPhotos}
+                  onUserPress={() => onUserPress(item?.user?.username)}
+                  onImagePress={() => onImagePress(item.id)}
+                />
               </div>
             ))}
-          </div>
-        </div>
+          </Masonry>
+        </Container>
       </div>
     </div>
   );

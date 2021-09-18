@@ -17,3 +17,11 @@ export const getPhoto = createAsyncThunk("photos/getPhoto", async (id) => {
   const response = await PhotosService.getPhoto(id);
   return response.data;
 });
+
+export const getRandomPhoto = createAsyncThunk(
+  "photos/getRandomPhoto",
+  async () => {
+    const response = await PhotosService.getRandomPhoto();
+    return response.data;
+  }
+);

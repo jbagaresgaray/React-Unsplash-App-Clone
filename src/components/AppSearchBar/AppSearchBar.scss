@@ -1,0 +1,57 @@
+.AppSearchBar {
+  padding-bottom: 16px;
+  padding-right: 0;
+
+  &__Rounded {
+    width: 100%;
+    margin-left: 18px;
+    padding-bottom: 0;
+
+    .input-group {
+      width: 100%;
+      background-color: #eee !important;
+      border-color: #d1d1d1 !important;
+      border-radius: 24px !important;
+      height: 40px !important;
+
+      .input-group-text {
+        &:first-child {
+          border-top-left-radius: 40px;
+          border-bottom-left-radius: 40px;
+        }
+
+        &:last-child {
+          margin-left: -1px;
+          border-top-right-radius: 40px;
+          border-bottom-right-radius: 40px;
+        }
+      }
+    }
+  }
+
+  .input-group {
+    height: 54px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid transparent;
+
+    .input-group-text {
+      background-color: inherit;
+      border: unset;
+    }
+
+    input {
+      background-color: inherit;
+      border: unset;
+      box-shadow: unset;
+
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+
+      &:focus {
+        box-shadow: unset;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.AppCardItem {
+  position: relative;
+  border: none;
+
+  &:hover {
+    cursor: zoom-in;
+
+    .AppCardItem__card-header {
+      display: flex;
+    }
+
+    .AppCardItem__card-body {
+      display: block;
+    }
+  }
+
+  &__btn-group {
+    & > .btn {
+      margin: 0.25rem 0.125rem;
+    }
+  }
+
+  &__card-header {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+
+    // display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__card-body {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__user {
+    &-container {
+      margin-left: 6px;
+
+      &-name {
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 0;
+        cursor: pointer;
+        color: #fff;
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+      &-subname {
+        font-size: 11px;
+        font-weight: 400;
+        color: #fff;
+        margin-bottom: 0;
+        cursor: pointer;
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

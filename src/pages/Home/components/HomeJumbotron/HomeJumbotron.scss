@@ -1,0 +1,84 @@
+.HomeJumbotron {
+  position: relative;
+  background-color: #111;
+  background-size: cover;
+
+  &__title {
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  &__heading {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
+  &__footer {
+    font-size: 13px;
+    font-weight: 500;
+    color: hsla(0, 0%, 100%, 0.55);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+
+    a {
+      color: hsla(0, 0%, 100%, 0.8);
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+        // font-weight: 500;
+      }
+    }
+  }
+
+  @media (min-width: 576px) {
+    .container-sm,
+    .container {
+    }
+  }
+  @media (min-width: 768px) {
+    .container-md,
+    .container-sm,
+    .container {
+      padding-top: 144px;
+      padding-bottom: 134px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+      padding-top: 144px;
+      padding-bottom: 134px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+      padding-top: 144px;
+      padding-bottom: 134px;
+    }
+  }
+  @media (min-width: 1400px) {
+    .container-xxl,
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+      padding-top: 144px;
+      padding-bottom: 134px;
+    }
+  }
+}
