@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
+        env:
           REACT_APP_UNSPLASH_ACCESS_KEY: ${{ secrets.REACT_APP_UNSPLASH_ACCESS_KEY }}
           REACT_APP_UNSPLASH_SECRET_KEY: ${{ secrets.REACT_APP_UNSPLASH_SECRET_KEY }}
       - run: CI='' npm ci && npm run build
