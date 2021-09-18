@@ -105,7 +105,7 @@ function AppFooter() {
           <div className="AppFooter__container">
             <a href="/" title="Home — Unsplash">
               <img
-                class="AppFooter__logo"
+                className="AppFooter__logo"
                 src="https://unsplash.com/assets/core/logo-black-df2168ed0c378fa5506b1816e75eb379d06cfcd0af01e07a2eb813ae9b5d7405.svg"
               />
             </a>

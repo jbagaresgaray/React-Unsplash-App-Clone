@@ -5,6 +5,7 @@ import {
   getPhoto,
   getRandomPhoto,
 } from "../middleware/photos";
+import uniqBy from "lodash/uniqBy";
 
 const initialState = {
   isLoadingPhoto: false,
@@ -37,9 +38,11 @@ const { actions, reducer } = createSlice({
       state.isLoadingPhotos = true;
     });
     builder.addCase(fetchListPhotos.fulfilled, (state, { payload }) => {
+      const tmpPhotos = [...state.photos];
       state.isLoadingPhotos = false;
       // state.topics = state.topics.concat(payload);
-      state.photos = payload;
+      const newPhotos = tmpPhotos.concat(payload);
+      state.photos = uniqBy(newPhotos, "id");
     });
     builder.addCase(fetchListPhotos.rejected, (state, action) => {
       state.isLoadingPhotos = false;

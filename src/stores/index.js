@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import hardSet from "redux-persist/lib/stateReconciler/hardSet";
 
 import rootReducer from "./reducer";
 
@@ -9,6 +10,7 @@ const persistedReducer = persistReducer(
   {
     key: "root",
     storage,
+    stateReconciler: hardSet,
   },
   rootReducer
 );

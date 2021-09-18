@@ -39,8 +39,8 @@ const IPhoto = {
   categories: PropTypes.array,
   likes: PropTypes.number,
   liked_by_user: PropTypes.bool,
-  current_user_collections: PropTypes.oneOf(PropTypes.object, PropTypes.array),
-  sponsorship: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  current_user_collections: PropTypes.array,
+  sponsorship: PropTypes.object,
   user: PropTypes.shape(
     lazyFunction(function () {
       return IUser;
