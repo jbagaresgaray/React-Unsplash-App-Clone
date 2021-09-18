@@ -12,6 +12,10 @@ jobs:
         env:
           REACT_APP_UNSPLASH_ACCESS_KEY: ${{ secrets.REACT_APP_UNSPLASH_ACCESS_KEY }}
           REACT_APP_UNSPLASH_SECRET_KEY: ${{ secrets.REACT_APP_UNSPLASH_SECRET_KEY }}
+      - name: Variable to dotenv
+          uses: CallePuzzle/envvar-to-dotenv-action@0.1.0
+          with:
+            variableNamesByFilter: ^REACT_(APP.*)
       - run: CI='' npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
