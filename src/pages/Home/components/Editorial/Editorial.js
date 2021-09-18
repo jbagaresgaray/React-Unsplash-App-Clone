@@ -6,12 +6,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
-import AppCardItem from "../../components/AppCardItem";
-import { photosSelectors } from "../../stores/slices/photosSlice";
+import AppCardItem from "../../../../components/AppCardItem";
+import { photosSelectors } from "../../../../stores/slices/photosSlice";
 
 import "./Editorial.scss";
-import { fetchListPhotos } from "../../stores/middleware/photos";
-import { MAX_PER_PAGE } from "../../constants";
+import { fetchListPhotos } from "../../../../stores/middleware/photos";
+import { MAX_PER_PAGE } from "../../../../constants";
 
 function Editorial() {
   const dispatch = useDispatch();

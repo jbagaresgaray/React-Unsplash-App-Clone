@@ -35,7 +35,7 @@ function HomeJumbotron() {
       </Container>
       <Row className="HomeJumbotron__footer mx-3">
         <Col lg={4}>
-          <a href={`${ROUTES.PHOTO}/${randomPhoto.id}`}>Photo of the Day</a>
+          <a href={`${ROUTES.PHOTO}/${randomPhoto?.id}`}>Photo of the Day</a>
           &nbsp;by&nbsp;
           <span>
             <a
