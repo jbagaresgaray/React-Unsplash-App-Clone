@@ -1,6 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 import AppFooter from "../../components/AppFooter";
 import AppHeader from "../../components/AppHeader";
 import Editorial from "../Editorial/Editorial";
