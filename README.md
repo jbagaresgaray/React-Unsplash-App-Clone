@@ -6,7 +6,14 @@
 
 A Unsplash app build with React JS and Redux
 
+## Screenshots
+
+[![React - Unsplash App](ss1.png)](https://react-unsplash-clone.web.app)
+[![React - Unsplash App](ss2.png)](https://react-unsplash-clone.web.app)
+[![React - Unsplash App](ss3.png)](https://react-unsplash-clone.web.app)
+
 ## Plugins Used
+
 - React JS,
 - Redux,
 - Redux-Thunk,
@@ -15,6 +22,12 @@ A Unsplash app build with React JS and Redux
 ## Source URL
 
 - GitHub: https://github.com/jbagaresgaray/React-Unsplash-App-Clone
+
+## Demo URL
+
+- https://react-unsplash-clone.web.app
+
+[![React - Unsplash App](video.gif)](https://react-unsplash-clone.web.app)
 
 ## Environment Variables
 
@@ -35,7 +48,6 @@ Wanne see the Ionic React version of this app? See the link below:
 Wanne see the React Native version of this app? See the link below:
 
 - GitHub: https://github.com/jbagaresgaray/React-Native-Unsplash-App
-
 
 ## You can find me on:
 
