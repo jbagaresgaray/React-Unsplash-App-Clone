@@ -9,7 +9,6 @@ import "./HomeJumbotron.scss";
 
 function HomeJumbotron() {
   const randomPhoto = useSelector(photosSelectors.randomPhoto);
-  console.log("randomPhoto: ", randomPhoto);
 
   return (
     <section
@@ -49,7 +48,7 @@ function HomeJumbotron() {
         </Col>
         <Col lg={4} className="text-center">
           Read more about the &nbsp;
-          <a href="https://unsplash.com/license" className="" target="_blank">
+          <a href="https://unsplash.com/license" className="" target="_blank" rel="noreferrer">
             Unsplash License
           </a>
         </Col>

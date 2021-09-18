@@ -38,11 +38,15 @@ const { actions, reducer } = createSlice({
       state.isLoadingPhotos = true;
     });
     builder.addCase(fetchListPhotos.fulfilled, (state, { payload }) => {
-      const tmpPhotos = [...state.photos];
       state.isLoadingPhotos = false;
-      // state.topics = state.topics.concat(payload);
-      const newPhotos = tmpPhotos.concat(payload);
-      state.photos = uniqBy(newPhotos, "id");
+
+      if (payload.refresh) {
+        state.photos = payload.data;
+      } else {
+        const tmpPhotos = [...state.photos];
+        const newPhotos = tmpPhotos.concat(payload.data);
+        state.photos = uniqBy(newPhotos, "id");
+      }
     });
     builder.addCase(fetchListPhotos.rejected, (state, action) => {
       state.isLoadingPhotos = false;

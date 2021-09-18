@@ -1,7 +1,7 @@
 import React from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./AppSearchBar.scss";
 

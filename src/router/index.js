@@ -25,6 +25,7 @@ function AppRoutes() {
         page: 1,
         per_page: MAX_PER_PAGE,
         order_by: "latest",
+        refresh: true,
       })
     );
     dispatch(
@@ -34,7 +35,7 @@ function AppRoutes() {
       })
     );
     dispatch(getRandomPhoto());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>

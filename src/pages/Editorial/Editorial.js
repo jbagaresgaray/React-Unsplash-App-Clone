@@ -24,11 +24,11 @@ function Editorial() {
   const onImagePress = (id) => {};
 
   const fetchMoreData = async () => {
-    console.log("fetchMoreData");
+    console.log("fetchMoreData: ", currentPage);
     setPageNumber(currentPage + 1);
     await dispatch(
       fetchListPhotos({
-        page: currentPage,
+        page: currentPage + 1,
         per_page: MAX_PER_PAGE,
         order_by: "latest",
       })

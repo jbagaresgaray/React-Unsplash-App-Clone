@@ -10,7 +10,8 @@ import HomeCategoryCard from "../HomeCategoryCard/HomeCategoryCard";
 import { ITopic } from "../../../../constants/propTypes/topic";
 
 function HomeCategories(props) {
-  const { topics, showLoading, onClick } = props;
+  const { topics, onClick } = props;
+
   return (
     <div className="HomeCategories me-4">
       <div className="HomeCategories__Topics">

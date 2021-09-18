@@ -3,13 +3,16 @@ import PhotosService from "../../api/photos";
 
 export const fetchListPhotos = createAsyncThunk(
   "photos/fetchPhotos",
-  async ({ page, per_page, order_by }) => {
+  async ({ page, per_page, order_by, refresh }) => {
     const response = await PhotosService.listPhotos({
       page,
       per_page,
       order_by,
     });
-    return response.data;
+    return {
+      data: response.data,
+      refresh,
+    };
   }
 );
 

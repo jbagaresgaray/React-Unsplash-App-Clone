@@ -11,8 +11,7 @@ import "./AppCardItem.scss";
 import AppUserCardItem from "../AppUserCardItem";
 
 function AppCardItem(props) {
-  const { item, showLoading, onUserPress, onDownloadPress, onImagePress } =
-    props;
+  const { item, onUserPress, onDownloadPress, onImagePress } = props;
 
   return (
     <div className="AppCardItem card shadow-none" onClick={onImagePress}>
