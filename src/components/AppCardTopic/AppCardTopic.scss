@@ -1,0 +1,60 @@
+.AppCardTopic {
+  border-radius: 6px;
+  position: relative;
+
+  &__card-image-container {
+    position: relative;
+    border-radius: inherit;
+  }
+
+  &__card-image {
+    height: 136px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &__card-image-overlay {
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__card-avatar {
+    height: 64px;
+    width: 64px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card-body {
+    .card-title {
+      font-size: 18px;
+      line-height: 1.34;
+      font-weight: 700;
+      color: #111;
+
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .card-subtitle {
+      color: #767676;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .card-description {
+      color: #111;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+  }
+}

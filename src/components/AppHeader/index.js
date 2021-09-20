@@ -5,6 +5,7 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 import "./AppHeader.scss";
 import AppSearchBar from "../AppSearchBar";
+import { ROUTES } from "../../router/routes";
 
 function AppHeader() {
   return (
@@ -15,7 +16,7 @@ function AppHeader() {
         variant="light"
         className="px-5 AppHeader__Topics"
       >
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href={ROUTES.HOME}>
           <svg
             width="32"
             height="32"
@@ -31,15 +32,15 @@ function AppHeader() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="#home">Editorial</Nav.Link>
+            <Nav.Link href={ROUTES.HOME}>Editorial</Nav.Link>
             <Nav.Link href="#link">Following</Nav.Link>
           </Nav>
           <div className="me-auto d-flex flex-grow-1">
             <AppSearchBar rounded />
           </div>
           <Nav className="align-items-center ms-5">
-            <Nav.Link href="#home">Topics</Nav.Link>
-            <Nav.Link href="#link">Collections</Nav.Link>
+            <Nav.Link href={ROUTES.TOPICS}>Topics</Nav.Link>
+            <Nav.Link href={ROUTES.COLLECTIONS}>Collections</Nav.Link>
             <Nav.Link href="#link" className="AppHeader__Notification">
               <Button variant="link">
                 <FontAwesomeIcon icon={faBell} size="lg" />

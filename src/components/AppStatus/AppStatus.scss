@@ -1,0 +1,22 @@
+.AppStatus {
+  background-color: #c2ebd3;
+  padding: 1px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #111;
+  text-transform: capitalize;
+
+  &__circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: #3cb46e;
+    display: inline-block;
+    margin-right: 6px;
+  }
+}
