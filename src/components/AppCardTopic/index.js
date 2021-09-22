@@ -16,10 +16,7 @@ function AppCardTopic(props) {
     cover_photo,
     owners,
     total_photos,
-    featured,
     status,
-    onUserPress,
-    onPress,
   } = props;
 
   return (
