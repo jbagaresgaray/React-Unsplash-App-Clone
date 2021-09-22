@@ -1,0 +1,15 @@
+.AppCollectionItem {
+  border-radius: 6px;
+  border: unset;
+
+  &__ImageContainer {
+    border-radius: inherit;
+  }
+
+  &__TagWrapper {
+    .badge {
+      margin: 4px;
+      text-transform: capitalize;
+    }
+  }
+}

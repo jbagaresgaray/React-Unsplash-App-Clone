@@ -57,7 +57,11 @@ const IPhotoExtended = {
   views: PropTypes.PropTypes.number,
   downloads: PropTypes.number,
   topics: PropTypes.arrayOf(PropTypes.shape(ITopic)),
-  related_collections: PropTypes.shape(IRelatedCollections),
+  related_collections: PropTypes.shape(
+    lazyFunction(function () {
+      return IRelatedCollections;
+    })
+  ),
   meta: PropTypes.shape(IMeta),
 };
 
