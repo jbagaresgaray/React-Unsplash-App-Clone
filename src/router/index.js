@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { MAX_PER_PAGE } from "../constants";
 import CollectionsScreen from "../pages/Collections/Collections";
+import DetailsScreen from "../pages/Details/Details";
+import FollowingScreen from "../pages/Following/Following";
 import HomeScreen from "../pages/Home/Home";
 import TopicScreen from "../pages/Topics/Topics";
 import { fetchCollections } from "../stores/middleware/collection";
@@ -43,8 +45,15 @@ function AppRoutes() {
     <Router>
       <Switch>
         <Route exact path={ROUTES.HOME} component={HomeScreen} />
+        <Route path={ROUTES.FOLLOWING} component={FollowingScreen} />
         <Route path={ROUTES.TOPICS} component={TopicScreen} />
         <Route path={ROUTES.COLLECTIONS} component={CollectionsScreen} />
+        <Route path={ROUTES.COLLECTIONS} component={DetailsScreen} />
+        <Route
+          path={`${ROUTES.COLLECTIONS}/:id/:title`}
+          component={DetailsScreen}
+        />
+        <Route path={`${ROUTES.TOPICS}/:id`} component={DetailsScreen} />
       </Switch>
     </Router>
   );

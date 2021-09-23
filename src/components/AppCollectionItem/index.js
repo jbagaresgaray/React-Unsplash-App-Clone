@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Card, Badge } from "react-bootstrap";
 import { ReactPhotoCollage } from "react-photo-collage";
+import lowerCase from "lodash/lowerCase";
 import { ICollection } from "../../constants/propTypes/collection";
 
 import "./AppCollectionItem.scss";
@@ -32,9 +33,19 @@ function AppCollectionItem({ index, item, onPressImage, onPressTitle }) {
         {item && item?.preview_photos && <ReactPhotoCollage {...getProps()} />}
       </div>
       <Card.Body>
-        <Card.Title>{item?.title}</Card.Title>
+        <Card.Title>
+          <a href={`/collections/${item?.id}/${lowerCase(item?.title)}`}>
+            {item?.title}
+          </a>
+        </Card.Title>
         <Card.Text>
-          {item?.total_photos} Photos · Curated by {item?.user?.username}
+          {item?.total_photos} Photos · Curated by{" "}
+          <a
+            href={`/@${item.user.username}/collection`}
+            className="AppCollectionItem__User"
+          >
+            {item?.user?.username}
+          </a>
         </Card.Text>
         <div className="AppCollectionItem__TagWrapper">
           {item?.tags &&

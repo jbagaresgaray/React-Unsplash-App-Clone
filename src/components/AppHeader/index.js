@@ -33,7 +33,7 @@ function AppHeader() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Nav.Link href={ROUTES.HOME}>Editorial</Nav.Link>
-            <Nav.Link href="#link">Following</Nav.Link>
+            <Nav.Link href={ROUTES.FOLLOWING}>Following</Nav.Link>
           </Nav>
           <div className="me-auto d-flex flex-grow-1">
             <AppSearchBar rounded />

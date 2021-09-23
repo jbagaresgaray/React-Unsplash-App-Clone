@@ -12,4 +12,28 @@
       text-transform: capitalize;
     }
   }
+
+  &__User {
+    text-decoration: none;
+    color: #767676;
+
+    &:hover {
+      color: #767676;
+      text-decoration: underline;
+    }
+  }
+
+  .card-body {
+    .card-title {
+      a {
+        text-decoration: none;
+        color: #111;
+      }
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #767676;
+    }
+  }
 }

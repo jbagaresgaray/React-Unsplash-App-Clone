@@ -4,4 +4,5 @@ export const ROUTES = {
   USER: "/user",
   TOPICS: "/t",
   COLLECTIONS: "/collections",
+  FOLLOWING: "/following",
 };
