@@ -11,7 +11,7 @@ function CollectionDetailsScreen() {
       <AppHeader />
       <main>
         <Container>
-          <div className="py-5 text-left">
+          <div className="py-5 text-left CollectionDetailsScreen__Header">
             <h2>Details Page</h2>
             <p className="lead">
               Explore the world through topics of beautiful photos free to use
