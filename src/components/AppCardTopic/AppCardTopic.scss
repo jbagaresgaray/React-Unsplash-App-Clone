@@ -64,4 +64,21 @@
       text-overflow: ellipsis;
     }
   }
+
+  &__Footer {
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #111;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: #d1d1d1;
+      margin-right: 16px;
+    }
+  }
 }

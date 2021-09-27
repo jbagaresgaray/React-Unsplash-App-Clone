@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faDownload,
   faCheckCircle,
   faExternalLinkAlt,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import AppFastImage from "../AppFastImage";
 import { IUser } from "../../constants/propTypes/user";
@@ -33,8 +33,8 @@ function AppUserCardItem({ user, tagline, onUserPress, onDownloadPress }) {
           )}
         </div>
       </div>
-      <Button variant="light">
-        <FontAwesomeIcon icon={faDownload} />
+      <Button variant="light" className="AppUserCardItem__Download">
+        <FontAwesomeIcon icon={faArrowDown} />
       </Button>
     </div>
   );

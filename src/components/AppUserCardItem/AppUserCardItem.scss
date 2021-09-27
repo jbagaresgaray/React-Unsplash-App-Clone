@@ -14,7 +14,7 @@
     }
 
     &-avatar {
-      background-color: rgba(0,0,0,.1);
+      background-color: rgba(0, 0, 0, 0.1);
       // border: 0.3px solid #ddd;
       border-radius: 36px;
       height: 32px;
@@ -47,6 +47,12 @@
           opacity: 1;
         }
       }
+    }
+  }
+
+  &__Download {
+    svg {
+      color: #767676;
     }
   }
 }

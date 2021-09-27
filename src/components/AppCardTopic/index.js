@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card, Button, Image } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import AppFastImage from "../AppFastImage";
 
 import { IPhoto, IPreviewPhotos } from "../../constants/propTypes/photo";
@@ -8,6 +8,8 @@ import { IPhoto, IPreviewPhotos } from "../../constants/propTypes/photo";
 import "./AppCardTopic.scss";
 import { IUser } from "../../constants/propTypes/user";
 import AppStatus from "../AppStatus";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 function AppCardTopic(props) {
   const {
@@ -43,18 +45,16 @@ function AppCardTopic(props) {
           />
         </div>
         <div className="my-3">
-          <Card.Text className="card-description">{description}</Card.Text>
+          <Card.Text
+            className="card-description"
+            dangerouslySetInnerHTML={{
+              __html: String(description),
+            }}
+          />
         </div>
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="btn-group">
-            <Button variant="outline-secondary" size="sm">
-              View
-            </Button>
-            <Button variant="outline-secondary" size="sm">
-              Edit
-            </Button>
-          </div>
-          <small className="text-muted">{total_photos} contributions</small>
+        <div className="AppCardTopic__Footer">
+          <FontAwesomeIcon icon={faImage} />
+          {total_photos} contributions
         </div>
       </Card.Body>
     </Card>

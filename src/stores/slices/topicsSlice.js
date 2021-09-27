@@ -1,4 +1,6 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
+import uniqBy from "lodash/uniqBy";
+
 import { MAX_PER_PAGE } from "../../constants";
 import { fetchListTopics, getTopic, getTopicPhotos } from "../middleware/topic";
 
@@ -65,7 +67,15 @@ const { actions, reducer } = createSlice({
     });
     builder.addCase(getTopicPhotos.fulfilled, (state, { payload }) => {
       state.isLoadingTopicPhotos = false;
-      state.topicPhotos = payload;
+      // state.topicPhotos = payload;
+
+      if (payload.refresh) {
+        state.topicPhotos = payload.data;
+      } else {
+        const tmpPhotos = [...state.topicPhotos];
+        const newPhotos = tmpPhotos.concat(payload.data);
+        state.topicPhotos = uniqBy(newPhotos, "id");
+      }
     });
     builder.addCase(getTopicPhotos.rejected, (state, action) => {
       state.isLoadingTopicPhotos = false;

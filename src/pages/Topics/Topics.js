@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import AppCardTopic from "../../components/AppCardTopic";
 import AppFooter from "../../components/AppFooter";
 import AppHeader from "../../components/AppHeader";
+import { ROUTES } from "../../router/routes";
 import { topicsSelectors } from "../../stores/slices/topicsSlice";
 
 import "./Topics.scss";
 
 const TopicScreen = () => {
+  const history = useHistory();
   const TopicsArr = useSelector(topicsSelectors.topics);
   const [featuredTopic, setFeaturedTopic] = useState({});
-  console.log("TopicsArr: ", TopicsArr);
+
 
   useEffect(() => {
     if (TopicsArr) {
@@ -20,7 +23,9 @@ const TopicScreen = () => {
     }
   }, [TopicsArr]);
 
-  const onTopicPress = (id_or_slug) => {};
+  const onTopicPress = (id_or_slug) => {
+    history.push(`${ROUTES.TOPICS}/${id_or_slug}`);
+  };
 
   const onUserPress = (username) => {};
 
@@ -29,14 +34,14 @@ const TopicScreen = () => {
       <AppHeader />
       <main>
         <Container>
-          <div className="py-5 text-left">
-            <h2>Topics</h2>
+          <div className="py-5 text-left TopicsScreen__Header">
+            <h1>Topics</h1>
             <p className="lead">
               Explore the world through topics of beautiful photos free to use
               under the <br /> Unsplash License.
             </p>
           </div>
-          <div className="py-2 text-left">
+          <div className="py-2 text-left TopicsScreen__Featured">
             <h2>Featured</h2>
           </div>
           <div className="py-2">
@@ -59,7 +64,7 @@ const TopicScreen = () => {
               )}
             </Row>
           </div>
-          <div className="pt-5 pb-2 text-left">
+          <div className="pt-5 pb-2 text-left TopicsScreen__Featured">
             <h2>All Topics</h2>
           </div>
           <div className="py-5">

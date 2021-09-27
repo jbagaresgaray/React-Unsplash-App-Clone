@@ -1,2 +1,29 @@
 .TopicsScreen {
+  &__Header {
+    h1 {
+      font-size: 46px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 16px;
+    }
+
+    .lead {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: #111;
+    }
+  }
+
+  &__Featured {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #111;
+
+      margin-top: 0;
+    }
+  }
 }

@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 
 import AppFooter from "../../components/AppFooter";
 import AppHeader from "../../components/AppHeader";
+import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Editorial from "./components/Editorial/Editorial";
-import HomeCategories from "./components/HomeCategories/HomeCategories";
 import HomeJumbotron from "./components/HomeJumbotron/HomeJumbotron";
 
 import { topicsSelectors } from "../../stores/slices/topicsSlice";

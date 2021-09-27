@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./HomeCategoryCard.scss";
-import AppFastImage from "../../../../components/AppFastImage";
-import { ITopic } from "../../../../constants/propTypes/topic";
+import AppFastImage from "../AppFastImage";
+import { ITopic } from "../../constants/propTypes/topic";
 
 function HomeCategoryCard(props) {
   const { topic, onPress } = props;

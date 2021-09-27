@@ -5,6 +5,8 @@ import AppCollectionItem from "../../components/AppCollectionItem";
 import AppFooter from "../../components/AppFooter";
 import AppHeader from "../../components/AppHeader";
 
+import "./Collections.scss";
+
 import { collectionsSelectors } from "../../stores/slices/collectionsSlice";
 
 function CollectionsScreen() {
@@ -19,12 +21,12 @@ function CollectionsScreen() {
       <AppHeader />
       <main>
         <Container>
-          <div className="py-5 text-left">
-            <h2>Collections</h2>
-            <p className="lead">
+          <div className="py-5 text-left Collections__Header">
+            <h1>Collections</h1>
+            <h2 className="lead">
               Explore the world through topics of beautiful photos free to use
               under the <br /> Unsplash License.
-            </p>
+            </h2>
           </div>
           <div className="py-5">
             <Row md="3" sm="2" className="row-cols-1 g-3">
