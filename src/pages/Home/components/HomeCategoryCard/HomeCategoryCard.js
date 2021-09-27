@@ -6,12 +6,12 @@ import AppFastImage from "../../../../components/AppFastImage";
 import { ITopic } from "../../../../constants/propTypes/topic";
 
 function HomeCategoryCard(props) {
-  const { topic, onClick } = props;
+  const { topic, onPress } = props;
 
   return (
     <div className="HomeCategoryCard">
       <div className="HomeCategoryCard__image-container">
-        <div className="HomeCategoryCard__image-wrapper" onClick={onClick}>
+        <div className="HomeCategoryCard__image-wrapper" onClick={onPress}>
           <AppFastImage uri={topic?.cover_photo?.urls.small} />
         </div>
         <div className="HomeCategoryCard__image-title">

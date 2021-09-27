@@ -10,7 +10,7 @@ import HomeCategoryCard from "../HomeCategoryCard/HomeCategoryCard";
 import { ITopic } from "../../../../constants/propTypes/topic";
 
 function HomeCategories(props) {
-  const { topics, onClick } = props;
+  const { topics, onPress } = props;
 
   return (
     <div className="HomeCategories me-4">
@@ -20,7 +20,7 @@ function HomeCategories(props) {
             <HomeCategoryCard
               topic={topic}
               key={index}
-              onClick={() => onClick(topic.id)}
+              onPress={() => onPress(topic.id)}
             />
           ))}
       </div>

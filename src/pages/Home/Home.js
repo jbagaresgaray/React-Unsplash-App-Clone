@@ -10,12 +10,17 @@ import HomeJumbotron from "./components/HomeJumbotron/HomeJumbotron";
 import { topicsSelectors } from "../../stores/slices/topicsSlice";
 
 import "./Home.scss";
+import { useHistory } from "react-router";
+import { ROUTES } from "../../router/routes";
 
 const HomeScreen = () => {
   const TopicsArr = useSelector(topicsSelectors.topics);
   const isLoadingTopics = useSelector(topicsSelectors.isLoadingTopics);
+  const history = useHistory();
 
-  const onTopicPress = (id_or_slug) => {};
+  const onTopicPress = (id_or_slug) => {
+    history.push(`${ROUTES.TOPICS}/${id_or_slug}`);
+  };
 
   return (
     <div className="HomeScreen">
@@ -25,7 +30,7 @@ const HomeScreen = () => {
           <HomeCategories
             showLoading={isLoadingTopics}
             topics={TopicsArr}
-            onClick={onTopicPress}
+            onPress={onTopicPress}
           />
         </div>
         <HomeJumbotron />

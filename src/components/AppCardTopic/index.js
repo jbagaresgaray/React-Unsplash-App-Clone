@@ -17,10 +17,11 @@ function AppCardTopic(props) {
     owners,
     total_photos,
     status,
+    onPress,
   } = props;
 
   return (
-    <Card className="AppCardTopic">
+    <Card className="AppCardTopic" onClick={onPress}>
       <div className="AppCardTopic__card-image-container">
         <div className="AppCardTopic__card-image">
           <AppFastImage uri={cover_photo?.urls?.small} />
@@ -29,7 +30,7 @@ function AppCardTopic(props) {
           <AppStatus label={status} />
         </div>
       </div>
-      <Card.Body>
+      <Card.Body className="mx-3 my-3">
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex flex-column">
             <Card.Title>{title}</Card.Title>
@@ -41,7 +42,7 @@ function AppCardTopic(props) {
             roundedCircle
           />
         </div>
-        <div className="mt-3">
+        <div className="my-3">
           <Card.Text className="card-description">{description}</Card.Text>
         </div>
         <div className="d-flex justify-content-between align-items-center">

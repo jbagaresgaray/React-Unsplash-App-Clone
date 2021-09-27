@@ -3,11 +3,11 @@ import { Container, Row } from "react-bootstrap";
 import AppFooter from "../../components/AppFooter";
 import AppHeader from "../../components/AppHeader";
 
-import "./Details.scss";
+import "./CollectionDetails.scss";
 
-function DetailsScreen() {
+function CollectionDetailsScreen() {
   return (
-    <div className="DetailsScreen">
+    <div className="CollectionDetailsScreen">
       <AppHeader />
       <main>
         <Container>
@@ -28,4 +28,4 @@ function DetailsScreen() {
   );
 }
 
-export default DetailsScreen;
+export default CollectionDetailsScreen;
