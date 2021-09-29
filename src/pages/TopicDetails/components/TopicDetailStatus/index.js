@@ -26,7 +26,7 @@ function TopicDetailStatus({ topic, showLoading, onUserPress }) {
               <FontAwesomeIcon icon={faBolt} />
               <span>Status</span>
             </div>
-            <AppStatus label={topic.status} />
+            <AppStatus label={topic?.status} />
           </ListGroup.Item>
           <ListGroup.Item className="d-flex justify-content-between align-items-center">
             <div className="TopicDetailStatus__Block">
@@ -70,7 +70,7 @@ function TopicDetailStatus({ topic, showLoading, onUserPress }) {
       </Card>
       <div className="d-grid gap-2 mt-3">
         <Button variant="dark">
-          Submit to <strong>{topic.title}</strong>
+          Submit to <strong>{topic?.title}</strong>
         </Button>
       </div>
     </div>

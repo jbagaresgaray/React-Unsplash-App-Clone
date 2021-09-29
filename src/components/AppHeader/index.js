@@ -2,12 +2,20 @@ import React from "react";
 import { Button, Image, Nav, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { useRouteMatch } from "react-router";
 
 import "./AppHeader.scss";
 import AppSearchBar from "../AppSearchBar";
 import { ROUTES } from "../../router/routes";
 
 function AppHeader() {
+  const match = useRouteMatch();
+
+  // useEffect(() => {
+  //   console.log("match: ", match);
+  // }, [match]);
+
   return (
     <header className="AppHeader fixed-top">
       <Navbar
@@ -16,7 +24,7 @@ function AppHeader() {
         variant="light"
         className="px-5 AppHeader__Topics"
       >
-        <Navbar.Brand href={ROUTES.HOME}>
+        <Navbar.Brand as={Link} to={ROUTES.HOME}>
           <svg
             width="32"
             height="32"
@@ -31,17 +39,33 @@ function AppHeader() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
-            <Nav.Link href={ROUTES.HOME}>Editorial</Nav.Link>
-            <Nav.Link href={ROUTES.FOLLOWING}>Following</Nav.Link>
+          <Nav defaultActiveKey={ROUTES.HOME} activeKey={match.path}>
+            <Nav.Link as={Link} to={ROUTES.HOME} eventKey={ROUTES.HOME}>
+              Editorial
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to={ROUTES.FOLLOWING}
+              eventKey={ROUTES.FOLLOWING}
+            >
+              Following
+            </Nav.Link>
           </Nav>
           <div className="me-auto d-flex flex-grow-1">
             <AppSearchBar rounded />
           </div>
           <Nav className="align-items-center ms-5">
-            <Nav.Link href={ROUTES.TOPICS}>Topics</Nav.Link>
-            <Nav.Link href={ROUTES.COLLECTIONS}>Collections</Nav.Link>
-            <Nav.Link href="#link" className="AppHeader__Notification">
+            <Nav.Link as={Link} to={ROUTES.TOPICS} eventKey={ROUTES.TOPICS}>
+              Topics
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to={ROUTES.COLLECTIONS}
+              eventKey={ROUTES.COLLECTIONS}
+            >
+              Collections
+            </Nav.Link>
+            <Nav.Link as={Link} to="#link" className="AppHeader__Notification">
               <Button variant="link">
                 <FontAwesomeIcon icon={faBell} size="lg" />
               </Button>

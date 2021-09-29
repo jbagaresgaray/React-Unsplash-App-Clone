@@ -25,7 +25,7 @@ function PhotoDetailsScreen() {
 
   const image = useSelector(photosSelectors.photo);
   const relatedPhotos = useSelector(photosSelectors.relatedPhotos);
-  // const isLoadingPhoto = useSelector(photosSelectors.isLoadingPhoto);
+  const isLoadingPhoto = useSelector(photosSelectors.isLoadingPhoto);
   const isLoadingRelatedPhotos = useSelector(
     photosSelectors.isLoadingRelatedPhotos
   );
@@ -56,30 +56,34 @@ function PhotoDetailsScreen() {
       <AppHeader />
       <main>
         <Container>
-          <PhotoDetailsHeader
-            image={image}
-            onDownloadPress={onDownloadPress}
-            onUserPress={onUserPress}
-          />
-          <div className="py-5">
-            <Row>
-              <Col
-                xl={{
-                  span: 8,
-                  offset: 2,
-                }}
-                lg={{
-                  span: 8,
-                  offset: 2,
-                }}
-                md={12}
-                sm={12}
-              >
-                <AppFastImage uri={image?.urls?.regular} />
-              </Col>
-            </Row>
-          </div>
-          <PhotoDetailsFooter image={image} />
+          {!isLoadingPhoto && (
+            <>
+              <PhotoDetailsHeader
+                image={image}
+                onDownloadPress={onDownloadPress}
+                onUserPress={onUserPress}
+              />
+              <div className="py-5">
+                <Row>
+                  <Col
+                    xl={{
+                      span: 8,
+                      offset: 2,
+                    }}
+                    lg={{
+                      span: 8,
+                      offset: 2,
+                    }}
+                    md={12}
+                    sm={12}
+                  >
+                    <AppFastImage uri={image?.urls?.regular} />
+                  </Col>
+                </Row>
+              </div>
+              <PhotoDetailsFooter image={image} />
+            </>
+          )}
           {!isEmpty(relatedPhotos) && (
             <AppRelatedPhotos
               photos={relatedPhotos}

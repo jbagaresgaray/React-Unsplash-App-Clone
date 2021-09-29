@@ -117,13 +117,17 @@ function TopicDetailsScreen() {
           <Row className="g-3">
             <Col xs={8} md={8}>
               <div className="py-3 text-left TopicDetailsScreen__Information">
-                <h1>{topic.title}</h1>
-                <h2
-                  className="html"
-                  dangerouslySetInnerHTML={{
-                    __html: String(topic?.description),
-                  }}
-                ></h2>
+                {!isLoadingTopic && (
+                  <>
+                    <h1>{topic?.title}</h1>
+                    <h2
+                      className="html"
+                      dangerouslySetInnerHTML={{
+                        __html: String(topic?.description),
+                      }}
+                    ></h2>
+                  </>
+                )}
               </div>
             </Col>
             <Col xs={4} md={4}>
