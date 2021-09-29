@@ -1,6 +1,6 @@
 export const ROUTES = {
   HOME: "/",
-  PHOTO: "/photo",
+  PHOTO: "/photos",
   USER: "/user",
   TOPICS: "/t",
   COLLECTIONS: "/collections",

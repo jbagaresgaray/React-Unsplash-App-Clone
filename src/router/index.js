@@ -12,6 +12,7 @@ import { fetchCollections } from "../stores/middleware/collection";
 import { fetchListPhotos, getRandomPhoto } from "../stores/middleware/photos";
 import { fetchListTopics } from "../stores/middleware/topic";
 import { ROUTES } from "./routes";
+import PhotoDetailsScreen from "../pages/PhotoDetails/PhotoDetails";
 
 function AppRoutes() {
   const dispatch = useDispatch();
@@ -46,11 +47,20 @@ function AppRoutes() {
     <Router>
       <Switch>
         <Route exact path={ROUTES.HOME} component={HomeScreen} />
-        <Route exact path={`${ROUTES.TOPICS}/:id_or_slug`} component={DetailsScreen} />
+        <Route
+          exact
+          path={`${ROUTES.TOPICS}/:id_or_slug`}
+          component={DetailsScreen}
+        />
         <Route
           exact
           path={`${ROUTES.COLLECTIONS}/:id/:title`}
           component={CollectionDetailsScreen}
+        />
+        <Route
+          exact
+          path={`${ROUTES.PHOTO}/:id`}
+          component={PhotoDetailsScreen}
         />
         <Route path={ROUTES.FOLLOWING} component={FollowingScreen} />
         <Route path={ROUTES.TOPICS} component={TopicScreen} />

@@ -9,9 +9,16 @@ import { IPhoto } from "../../constants/propTypes/photo";
 
 import "./AppCardItem.scss";
 import AppUserCardItem from "../AppUserCardItem";
+import { useHistory } from "react-router";
+import { ROUTES } from "../../router/routes";
 
 function AppCardItem(props) {
-  const { item, onUserPress, onDownloadPress, onImagePress } = props;
+  const history = useHistory();
+  const { item, onUserPress, onDownloadPress } = props;
+
+  const onImagePress = () => {
+    history.push(`${ROUTES.PHOTO}/${item.id}`);
+  };
 
   return (
     <div className="AppCardItem card shadow-none" onClick={onImagePress}>
@@ -39,6 +46,7 @@ function AppCardItem(props) {
       <div className="AppCardItem__card-body">
         {item?.sponsorship !== null && (
           <AppUserCardItem
+            showDownload
             user={item?.sponsorship?.sponsor}
             tagline={item?.sponsorship?.tagline}
             onMorePress={onDownloadPress}
@@ -47,6 +55,7 @@ function AppCardItem(props) {
         )}
         {item?.sponsorship == null && (
           <AppUserCardItem
+            showDownload
             user={item?.user}
             onMorePress={onDownloadPress}
             onUserPress={onUserPress}

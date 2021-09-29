@@ -3,6 +3,7 @@ import { MAX_PER_PAGE } from "../../constants";
 import {
   fetchListPhotos,
   getPhoto,
+  getPhotoRelated,
   getRandomPhoto,
 } from "../middleware/photos";
 import uniqBy from "lodash/uniqBy";
@@ -10,10 +11,12 @@ import uniqBy from "lodash/uniqBy";
 const initialState = {
   isLoadingPhoto: false,
   isLoadingPhotos: false,
+  isLoadingRelatedPhotos: false,
   isLoadingRandomPhoto: false,
   isLoadingRandomPhotos: false,
   photos: [],
   randomPhotos: [],
+  relatedPhotos: [],
   photo: null,
   randomPhoto: null,
   page: 1,
@@ -83,16 +86,37 @@ const { actions, reducer } = createSlice({
       state.isLoadingRandomPhoto = false;
       state.error = action.error;
     });
+    // ===================================================
+    // ===================================================
+    // ===================================================
+
+    builder.addCase(getPhotoRelated.pending, (state) => {
+      state.isLoadingRelatedPhotos = true;
+    });
+    builder.addCase(getPhotoRelated.fulfilled, (state, { payload }) => {
+      console.log("getPhotoRelated: ", payload);
+      state.isLoadingRelatedPhotos = false;
+      state.relatedPhotos = payload.results;
+    });
+    builder.addCase(getPhotoRelated.rejected, (state, action) => {
+      state.isLoadingRelatedPhotos = false;
+      state.error = action.error;
+    });
   },
 });
 
 const selectRoot = (state) => state.photos;
 export const photosSelectors = {
   photos: createSelector(selectRoot, (state) => state.photos),
+  relatedPhotos: createSelector(selectRoot, (state) => state.relatedPhotos),
   photo: createSelector(selectRoot, (state) => state.photo),
   randomPhoto: createSelector(selectRoot, (state) => state.randomPhoto),
   isLoadingPhoto: createSelector(selectRoot, (state) => state.isLoadingPhoto),
   isLoadingPhotos: createSelector(selectRoot, (state) => state.isLoadingPhotos),
+  isLoadingRelatedPhotos: createSelector(
+    selectRoot,
+    (state) => state.isLoadingRelatedPhotos
+  ),
   isLoadingRandomPhoto: createSelector(
     selectRoot,
     (state) => state.isLoadingRandomPhoto

@@ -9,6 +9,9 @@ const PhotosService = {
   getPhoto(id) {
     return API.get(`/photos/${id}`);
   },
+  getPhotoRelated(id) {
+    return API.get(`/photos/${id}/related`);
+  },
   getRandomPhoto() {
     return API.get(`/photos/random`);
   },

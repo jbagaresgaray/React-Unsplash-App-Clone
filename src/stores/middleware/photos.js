@@ -21,6 +21,14 @@ export const getPhoto = createAsyncThunk("photos/getPhoto", async (id) => {
   return response.data;
 });
 
+export const getPhotoRelated = createAsyncThunk(
+  "photos/getPhotoRelated",
+  async (id) => {
+    const response = await PhotosService.getPhotoRelated(id);
+    return response.data;
+  }
+);
+
 export const getRandomPhoto = createAsyncThunk(
   "photos/getRandomPhoto",
   async () => {
