@@ -14,11 +14,11 @@ function PhotoDetailsFooter({ image }) {
           <div className="PhotoDetailsFooter__Stats">
             <div className="mr-4">
               <h3>Views</h3>
-              <p className="lead">{image.views}</p>
+              <p className="lead">{image?.views}</p>
             </div>
             <div className="mx-4">
               <h3>Downloads</h3>
-              <p className="lead">{image.downloads}</p>
+              <p className="lead">{image?.downloads}</p>
             </div>
             <div className="mx-4">
               <h3>Featured in</h3>
@@ -29,7 +29,7 @@ function PhotoDetailsFooter({ image }) {
                 </p>
                 {image?.topics.map((item, index) => (
                   <p className="lead ms-1" key={index}>
-                    {item.title},{" "}
+                    {item?.title},{" "}
                   </p>
                 ))}
               </div>
@@ -73,7 +73,7 @@ function PhotoDetailsFooter({ image }) {
           </div>
           <div className="d-block">
             <p className="PhotoDetailsFooter__Description">
-              {image.description}
+              {image?.description}
             </p>
           </div>
         </div>
