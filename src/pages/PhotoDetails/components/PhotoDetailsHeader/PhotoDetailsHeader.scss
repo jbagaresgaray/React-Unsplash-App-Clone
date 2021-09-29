@@ -1,0 +1,23 @@
+.PhotoDetailsHeader {
+  .AppUserCardItem {
+    border-bottom: unset;
+
+    &__user {
+      &-container {
+        &-name {
+          color: #111;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 1.35;
+        }
+
+        &-subname {
+          font-size: 11px;
+          letter-spacing: 0.02em;
+          line-height: 1.35;
+          color: #767676;
+        }
+      }
+    }
+  }
+}

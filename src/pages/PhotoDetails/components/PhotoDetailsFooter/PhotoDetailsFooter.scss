@@ -1,0 +1,82 @@
+.PhotoDetailsFooter {
+  &__Stats_Info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__Stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    > div {
+      min-width: 120px;
+    }
+
+    h3 {
+      font-size: 14px;
+      color: #767676;
+      font-weight: 500;
+      line-height: 1.6;
+      width: fit-content;
+      cursor: help;
+    }
+
+    .lead {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #111;
+    }
+  }
+
+  &__Info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__items {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none;
+
+      svg {
+        color: #767676;
+        margin-right: 8px;
+        margin-top: 3px;
+        font-size: 16px;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #767676;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__Description {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #111;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
