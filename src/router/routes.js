@@ -5,4 +5,5 @@ export const ROUTES = {
   TOPICS: "/t",
   COLLECTIONS: "/collections",
   FOLLOWING: "/following",
+  SEARCH: "/s",
 };

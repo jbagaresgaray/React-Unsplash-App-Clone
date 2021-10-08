@@ -5,14 +5,22 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./AppSearchBar.scss";
 
-function AppSearchBar({ rounded }) {
+function AppSearchBar({ rounded, onSubmit, value }) {
   return (
     <div className={`AppSearchBar ${rounded ? "AppSearchBar__Rounded" : null}`}>
       <InputGroup className={`${rounded ? null : "mb-3"}`}>
         <InputGroup.Text>
           <FontAwesomeIcon icon={faSearch} size={`${rounded ? "sm" : "lg"}`} />
         </InputGroup.Text>
-        <FormControl placeholder="Search free high-resolution photos" />
+        <FormControl
+          placeholder="Search free high-resolution photos"
+          defaultValue={value}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              onSubmit(e);
+            }
+          }}
+        />
         <InputGroup.Text>
           <svg
             width={`${rounded ? "20" : "32"}`}

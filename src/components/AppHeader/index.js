@@ -1,20 +1,36 @@
 import React from "react";
 import { Button, Image, Nav, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faImage,
+  faLayerGroup,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useRouteMatch } from "react-router";
+import { useHistory, useRouteMatch } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 
-import "./AppHeader.scss";
 import AppSearchBar from "../AppSearchBar";
 import { ROUTES } from "../../router/routes";
+import {
+  searchActions,
+  searchSelectors,
+} from "../../stores/slices/searchSlice";
+
+import "./AppHeader.scss";
 
 function AppHeader() {
+  const history = useHistory();
   const match = useRouteMatch();
+  const dispatch = useDispatch();
+  const searchText = useSelector(searchSelectors.searchText);
 
-  // useEffect(() => {
-  //   console.log("match: ", match);
-  // }, [match]);
+  const onSubmitSearch = (e) => {
+    const search = e.target.value;
+    dispatch(searchActions.setSearchText(search));
+    history.push(`${ROUTES.SEARCH}${ROUTES.PHOTO}/${search}`);
+  };
 
   return (
     <header className="AppHeader fixed-top">
@@ -43,16 +59,20 @@ function AppHeader() {
             <Nav.Link as={Link} to={ROUTES.HOME} eventKey={ROUTES.HOME}>
               Editorial
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               as={Link}
               to={ROUTES.FOLLOWING}
               eventKey={ROUTES.FOLLOWING}
             >
               Following
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <div className="me-auto d-flex flex-grow-1">
-            <AppSearchBar rounded />
+            <AppSearchBar
+              rounded
+              onSubmit={onSubmitSearch}
+              value={searchText}
+            />
           </div>
           <Nav className="align-items-center ms-5">
             <Nav.Link as={Link} to={ROUTES.TOPICS} eventKey={ROUTES.TOPICS}>
@@ -79,6 +99,44 @@ function AppHeader() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      {searchText && (
+        <Navbar
+          bg="light"
+          expand="md"
+          variant="light"
+          className="px-5 AppHeader__Search"
+        >
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav
+              className="me-auto"
+              defaultActiveKey={`${ROUTES.SEARCH}${ROUTES.PHOTO}`}
+              activeKey={match.path}
+            >
+              <Nav.Link
+                as={Link}
+                to={`${ROUTES.SEARCH}${ROUTES.PHOTO}/${searchText}`}
+              >
+                <FontAwesomeIcon icon={faImage} />
+                <span className="ms-1">Photos</span>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to={`${ROUTES.SEARCH}${ROUTES.COLLECTIONS}/${searchText}`}
+              >
+                <FontAwesomeIcon icon={faLayerGroup} />
+                <span className="ms-1">Collections</span>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to={`${ROUTES.SEARCH}${ROUTES.USER}/${searchText}`}
+              >
+                <FontAwesomeIcon icon={faUsers} />
+                <span className="ms-1">Users</span>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      )}
     </header>
   );
 }

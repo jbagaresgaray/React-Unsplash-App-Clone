@@ -6,7 +6,6 @@ import {
   searchPhotosQry,
 } from "../middleware/search";
 
-
 const initialState = {
   isLoadingSearchUsers: false,
   isLoadingSearchCollections: false,
@@ -14,20 +13,18 @@ const initialState = {
   searchUsers: null,
   searchCollections: null,
   searchPhotos: null,
+  searchText: "",
   page: 1,
   per_page: MAX_PER_PAGE,
   error: null,
 };
 
 const { actions, reducer } = createSlice({
-  name: "users",
+  name: "search",
   initialState,
   reducers: {
-    incrementPage: (state) => {
-      state.page += 1;
-    },
-    decrementPage: (state) => {
-      state.page -= 1;
+    setSearchText: (state, { payload }) => {
+      state.searchText = payload;
     },
   },
   extraReducers(builder) {
@@ -64,7 +61,7 @@ const { actions, reducer } = createSlice({
     });
     builder.addCase(searchPhotosQry.fulfilled, (state, { payload }) => {
       state.isLoadingSearchPhotos = false;
-      state.searchPhotos = payload;
+      state.searchPhotos = payload.results;
     });
     builder.addCase(searchPhotosQry.rejected, (state, action) => {
       state.isLoadingSearchPhotos = false;
@@ -75,6 +72,7 @@ const { actions, reducer } = createSlice({
 
 const selectRoot = (state) => state.search;
 export const searchSelectors = {
+  searchText: createSelector(selectRoot, (state) => state.searchText),
   searchUsers: createSelector(selectRoot, (state) => state.searchUsers),
   searchPhotos: createSelector(selectRoot, (state) => state.searchPhotos),
   searchCollections: createSelector(

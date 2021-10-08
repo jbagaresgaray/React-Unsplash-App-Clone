@@ -13,6 +13,7 @@ import { fetchListPhotos, getRandomPhoto } from "../stores/middleware/photos";
 import { fetchListTopics } from "../stores/middleware/topic";
 import { ROUTES } from "./routes";
 import PhotoDetailsScreen from "../pages/PhotoDetails/PhotoDetails";
+import SearchScreen from "../pages/Search/Search";
 
 function AppRoutes() {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ function AppRoutes() {
         <Route path={ROUTES.TOPICS} component={TopicScreen} />
         <Route path={ROUTES.COLLECTIONS} component={CollectionsScreen} />
         <Route path={ROUTES.COLLECTIONS} component={DetailsScreen} />
+        <Route path={ROUTES.SEARCH} component={SearchScreen} />
       </Switch>
     </Router>
   );
